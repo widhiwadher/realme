@@ -32,19 +32,19 @@
       <div class="span6" style="margin-top: 200px;">
         <div class = "border_image" >
         <img src="bootstrap/img/11-110995_circle-icons-computer-my-computer-round-icon-hd.png"
-          style=" margin-left: 53px; border-radius: 200px; margin-top: 24px;" alt="Avatar" class="img-circle" width="220" height="100">
+          style=" margin-left: 40px; border-radius: 200px; margin-top: 35px;" alt="Avatar" class="img-circle" width="220" height="100">
         </div>
       </div>
 
 
       <div class="span6" style="margin-top: 120px;">
-        <h2>Member Login </h2>
+        <h2 class= "heading_login">Member Login </h2>
         <form class="form-search">
           <div class="control-group">
             <label class="control-label" for="inputEmail"></label>
             <div class="controls">
               <input type="text" id="inputEmail" placeholder="Email" class="input-xlarge input-medium search-query"
-                style="height: 40px; margin-top: 2em;">
+                style="height: 40px; margin-top: 2em;background-color: #E5E5E5;">
       
             </div>
           </div>
@@ -53,7 +53,7 @@
             <label class="control-label" for="inputPassword"></label>
             <div class="controls">
               <input type="password" id="inputPassword" placeholder="******" class=" input-xlarge input-medium search-query"
-                style="height: 40px; margin-top: 2em">
+                style="height: 40px; margin-top: 2em;background-color: #E5E5E5;">
             </div>
       
           </div>
@@ -61,20 +61,20 @@
             <label class="control-label" for="inputSubmit"> </label>
             <div class="controls">
               <button type="text" id="inputSubmit" class=" input-xlarge text-center input-medium search-query"
-                style="height: 40px ; margin-top: 2em ; background-color: chartreuse;color: white;font-size: 16px; padding: 7px;">Login</button>
+                style="height: 40px ; margin-top: 2em ; background-color: #1FCC44;color: white;font-size: 16px; padding: 7px;border: none;">Login</button>
               </div>
           </div>
       
           <div class="control-group" style="margin-top: 3em;">
-            <div class="controls" style=" margin-left: 2em ;color: lawngreen;">
-                <p2 style=" font-size: 15px ; color: black;">Forgot <a style=" color: lawngreen;" href="#">Username/Password
+            <div class="controls" style=" margin-left: 2em ;color: #1FCC44;">
+                <p2 style=" font-size: 15px ; color: black;">Forgot <a style=" color: #1FCC44;" href="#">Username/Password
                   ?</a></p2>
             </div>
       
-            <div class="controls" style=" margin-left: 4em ; color: lawngreen;">
+            <div class="controls" style=" margin-left: 4em ; color: #1FCC44;">
               <a href="#">
-                <p style=" font-size: 15px ;margin-left: 5px; margin-top: 3em ; color: lawngreen;">Create your account <i
-                    class="icon-arrow-right " style=" font-size: 15px;color:lawngreen ;"></i></p>
+                <p style=" font-size: 15px ;margin-left: 5px; margin-top: 3em ; color: #1FCC44;">Create your account <i
+                    class="icon-arrow-right " style=" font-size: 15px;color:#1FCC44 ;"></i></p>
               </a>
             </div>
          </div>
@@ -83,4 +83,26 @@
       
       </div>
       </div>
-      </body>
+
+ <script>
+  (function ($) {
+    
+    $("#inputSubmit") .click (function () {
+
+      var email = $("#inputEmail") .val ()
+      var pass = $("#inputPassword") .val()
+       
+
+
+
+    });
+
+
+
+  }(jQuery));
+ 
+
+
+
+ </script>
+</body>

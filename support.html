@@ -9,6 +9,8 @@
   <link href="bootstrap/css/widhi.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="bootstrap/js/custom.js"></script>
+  
 </head>
 
 <body style="background-image: linear-gradient(#8600CC , #B600C4);">
@@ -53,8 +55,7 @@
           <div class="control-group">
             <label class="control-label" for="inputPassword"></label>
             <div class="controls">
-              <input type="password" id="inputPassword" placeholder="******"
-                class=" input-xlarge input-medium search-query"
+              <input type="text" id="inputPassword" placeholder="******" class=" input-xlarge input-medium search-query"
                 style="height: 40px; margin-top: 2em;background-color: #E5E5E5;">
             </div>
 
@@ -90,39 +91,13 @@
       (function ($) {
 
         $("#inputSubmit").click(function () {
-
-          var isValid = true;
-          var pass = $("#inputPassword").val()
-          var caps = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-          var small = ("abcdefghijklmnopqrstuvwxyz");
-          var number = ("0123456789");
-          var splchar = "! @ # $ % ^ & * ( )"
-          if (pass.length < 8) {
-            isValid=false;
+          var isValidEmail = validateEmail($("#inputEmail").val())
+          var isValidPassword = validatePassword($("#inputPassword").val())
+          if (isValidEmail && isValidPassword) {
+            alert('Login Success');
+          } else {
+            alert('Login failed');
           }
-          if (pass.indexOf(caps) - 1) {
-            isValid=false;
-          }
-          if (pass.indexOf(small) - 1) {
-            isValid=false;
-          }
-
-          
-          if(!isValid){
-            alert("Password is not strong!")
-          }
-
-        })
-
-
-
-
-
-
+        });
       })(jQuery);
-
-
-
-
     </script>
-</body>

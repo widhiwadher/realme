@@ -160,6 +160,21 @@
           alert('Login failed');
         }
       });
+
+       $("#Username").blur(function () {
+        var suggested = [, "deepak123", "deepak@", "gunjan123", "gunjan@", "widhia", "widhi123", "niyatia", "niyati123"];
+        var taken = ["deepak", "gunjan", "widhi", "niyati"];
+        var x = $("#Username").val();
+        if (taken.includes(x)) {
+           $("#Username")
+        } else {
+         alert ("Suggest");
+        }
+      })
+     
+
+
+
     })(jQuery);
     
   </script>

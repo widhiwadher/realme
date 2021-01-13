@@ -67,3 +67,11 @@ function validateEmail(email) {
       return false;
     }
   }
+
+  function validateUsername(username) {
+    
+
+
+
+
+  }

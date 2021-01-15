@@ -104,28 +104,42 @@
             <div class="control-group">
               <label class="control-label" for="Username">Username</label>
               <div class="controls">
-                <input type="text" id="Username" class="form-control" placeholder="Username">
+                <input type="text" id="Username" class="form-control input-xlarge" style="height: 30px;"
+                  placeholder="Username">
               </div>
+              <span class="hide controls" id="show_text" style="color: rgb(200, 41, 41)">**Username already
+                taken</span><br />
+              <span class="hide controls" id="show_suggested" style="color: rgb(200, 41, 41)"></span>
             </div>
 
             <div class="control-group">
               <label class="control-label" for="Email">Email</label>
               <div class="controls">
-                <input type="text" id="Email" class="form-control" placeholder="Email">
+                <input type="text" id="Email" class="form-control input-xlarge" style="height: 30px;"
+                  placeholder="Email">
               </div>
             </div>
 
             <div class="control-group">
               <label class="control-label" for="Password">Password</label>
               <div class="controls">
-                <input type="text" id="Password" class="form-control" placeholder="Password">
+                <input type="text" id="Password" class="form-control input-xlarge" style="height: 30px;"
+                  placeholder="Password">
+                  <div id="message">
+                    <h3>Password must contain the following:</h3>
+                    <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                    <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                    <p id="number" class="invalid">A <b>number</b></p>
+                    <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                  </div>
               </div>
             </div>
 
             <div class="control-group">
               <label class="control-label" for="CPassword">Confirm Password</label>
               <div class="controls">
-                <input type="text" id="CPassword" class="form-control" placeholder="Confirm Password">
+                <input type="text" id="CPassword" class="form-control input-xlarge" style="height: 30px;"
+                  placeholder="Confirm Password">
               </div>
             </div>
 
@@ -137,7 +151,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-        <button class="btn btn-primary">Sign Up</button>
+        <button class="btn btn-primary" disabled>Sign Up</button>
       </div>
     </div>
   </div>
@@ -161,22 +175,31 @@
         }
       });
 
-       $("#Username").blur(function () {
-        var suggested = [, "deepak123", "deepak@", "gunjan123", "gunjan@", "widhia", "widhi123", "niyatia", "niyati123"];
+      $("#Username").blur(function () {
+        var suggested = ["deepak123", "deepak@", "gunjan123", "gunjan@", "widhia", "widhi123", "niyatia", "niyati123", "deepa"];
         var taken = ["deepak", "gunjan", "widhi", "niyati"];
         var x = $("#Username").val();
+        var char = x.charAt(0);
+        var final = [];
+        for (i = 0; i < suggested.length; i++) {
+          var item = suggested[i];
+          if (item.indexOf(char) == 0) {
+            final.push(item);
+          }
+        }
+        var string = final.join();
         if (taken.includes(x)) {
-           $("#Username")
-        } else {
-         alert ("Suggest");
+          $("#show_text").show()
+          var value = '**Suggested Username - ' + string;
+          $("#show_suggested").show()
+          document.getElementById("show_suggested").innerHTML = value;
+
+
         }
       })
-     
-
-
 
     })(jQuery);
-    
+
   </script>
 
 

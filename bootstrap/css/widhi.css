@@ -104,3 +104,22 @@ margin-left: 5px;
    font-size: 32px;
     line-height: 36px;
 }
+.invalid:before {
+   position: relative;
+   left: -35px;
+   
+  
+ }
+ .invalid {
+ color: red;
+}
+.valid {
+   color: green;
+ }
+ 
+ .valid:before {
+   position: relative;
+   left: -35px;
+   content: "✔";
+ }
+ 

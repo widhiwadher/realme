@@ -123,14 +123,18 @@
             <div class="control-group">
               <label class="control-label" for="Password">Password</label>
               <div class="controls">
-                <input type="text" id="Password" class="form-control input-xlarge" style="height: 30px;"
-                  placeholder="Password">
-                <div id="message" class="hide">
-                  <h3>Password must contain the following:</h3>
+                <input type="text" id="password" class="form-control input-xlarge" style="height: 30px;"
+                  placeholder="Password" oninput="validatePass()">
+                <div id="message">
+                  <br>
+                  <h4>Password must contain the following:</h4>
+                  <br>
                   <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
                   <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
                   <p id="number" class="invalid">A <b>number</b></p>
                   <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                  <p id="special" class="invalid">A <b> special character </b></p>
+
                 </div>
               </div>
             </div>
@@ -194,22 +198,50 @@
           $("#show_suggested").show()
           document.getElementById("show_suggested").innerHTML = value;
 
-
         }
+
       })
 
-     $("#Password").focus(function (){
-     $("#message").show().style.display = "block";
-     })
-      var caps = $("#capital").val;
-      var small = $("#letter").val;
-      var length = $("#length").val;
-      var number = $("#number").val;
-     
-     var item = $("#specialchar").val;
 
-    })
-      (jQuery);
+    })(jQuery);
+
+    function validatePass() {
+      var pass = $("#password").val();
+      var caps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      var small = "abcdefghijklmnopqrstuvwxyz";
+      var nums = "0123456789";
+      var spcl = "!@#$%^&*_+";
+
+      if (pass.length >= 8) {
+        $("#length").removeClass("invalid");
+        $("#length").addClass("valid");
+      }
+
+
+      var char = pass.charAt(pass.length - 1);
+      if (caps.indexOf(char) > -1) {
+        $("#capital").removeClass("invalid");
+        $("#capital").addClass("valid");
+      }
+     
+      if (small.indexOf(char) > -1) {
+        $("#letter").removeClass("invalid");
+        $("#letter").addClass("valid");
+      }
+    
+      if (nums.indexOf(char) > -1) {
+        $("#number").removeClass("invalid");
+        $("#number").addClass("valid");
+      }
+     
+      if (spcl.indexOf(char) > -1) {
+        $("#special").removeClass("invalid");
+        $("#special").addClass("valid");
+
+      }
+   
+    }
+
 
   </script>
 

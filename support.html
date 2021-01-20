@@ -125,7 +125,7 @@
               <div class="controls">
                 <input type="text" id="password" class="form-control input-xlarge" style="height: 30px;"
                   placeholder="Password">
-                <div id="message" class="hide">
+                <div id="message">
                   <br>
                   <h4>Password must contain the following:</h4>
                   <br>
@@ -209,65 +209,59 @@
       var number = $("#number");
       var length = $("#length");
 
-       pass.click(function () {
-        $("#message").show();
-
-      })
-
-      pass.blur(function () {
-        $("#message").hide();
-
-      })
-
-      var Issmall = "/[a-z]/g";
-      var IScaps = "/[A-Z]/g";
-      var ISnums = "/[0-9]/g";
-      var ISspcl = "!@#$%^&*_+";
-      var IsRegExp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
+      var Issmall = /[a-z]/g;
+      var IScaps = /[A-Z]/g;
+      var ISnums = /[0-9]/g;
 
       pass.keyup(function () {
-        if (pass.val().length >=8) {
+        if (pass.val().length >= 8) {
           length.removeClass("invalid");
           length.addClass("valid");
         } else {
           length.removeClass("valid");
           length.addClass("invalid");
         }
-      if (Issmall.match(pass.val)) {
-         small.removeClass("invalid");
+
+        if (pass.val().match(/[a-z]/g)) {
+          small.removeClass("invalid");
           small.addClass("valid");
         }
-      else {
+        else {
           small.removeClass("valid");
           small.addClass("invalid");
         }
-        if (IScaps.match(pass.val))  {
+
+
+        if (pass.val().match(IScaps)) {
           caps.removeClass("invalid");
           caps.addClass("valid");
         }
-      else {
-        caps.removeClass("valid");
-        caps.addClass("invalid");
+        else {
+          caps.removeClass("valid");
+          caps.addClass("invalid");
         }
-        if (ISnums.match(pass.val)) {
+
+
+        if (pass.val().match(ISnums)) {
           number.removeClass("invalid");
           number.addClass("valid");
         }
-      else {
-        number.removeClass("valid");
-        number.addClass("invalid");
+        else {
+          number.removeClass("valid");
+          number.addClass("invalid");
         }
-        if (ISspcl.match(pass.val)) {
+
+        if (pass.val().match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/)) {
           spcl.removeClass("invalid");
           spcl.addClass("valid");
         }
-      else {
-        spcl.removeClass("valid");
-        spcl.addClass("invalid");
+        else {
+          spcl.removeClass("valid");
+          spcl.addClass("invalid");
         }
       })
 
-   })(jQuery);
+    })(jQuery);
 
   </script>
 

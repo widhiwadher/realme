@@ -124,8 +124,8 @@
               <label class="control-label" for="Password">Password</label>
               <div class="controls">
                 <input type="text" id="password" class="form-control input-xlarge" style="height: 30px;"
-                  placeholder="Password" oninput="validatePass()">
-                <div id="message">
+                  placeholder="Password">
+                <div id="message" class="hide">
                   <br>
                   <h4>Password must contain the following:</h4>
                   <br>
@@ -202,49 +202,73 @@
 
       })
 
+      var pass = $("#password");
+      var caps = $("#capital");
+      var small = $("#letter");
+      var spcl = $("#special");
+      var number = $("#number");
+      var length = $("#length");
 
-    })(jQuery);
+       pass.click(function () {
+        $("#message").show();
 
-    function validatePass() {
-      var pass = $("#password").val();
-      var caps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      var small = "abcdefghijklmnopqrstuvwxyz";
-      var nums = "0123456789";
-      var spcl = "!@#$%^&*_+";
+      })
 
-      if (pass.length >= 8) {
-        $("#length").removeClass("invalid");
-        $("#length").addClass("valid");
-      }
+      pass.blur(function () {
+        $("#message").hide();
 
+      })
 
-      var char = pass.charAt(pass.length - 1);
-      if (caps.indexOf(char) > -1) {
-        $("#capital").removeClass("invalid");
-        $("#capital").addClass("valid");
-      }
-     
-      if (small.indexOf(char) > -1) {
-        $("#letter").removeClass("invalid");
-        $("#letter").addClass("valid");
-      }
-    
-      if (nums.indexOf(char) > -1) {
-        $("#number").removeClass("invalid");
-        $("#number").addClass("valid");
-      }
-     
-      if (spcl.indexOf(char) > -1) {
-        $("#special").removeClass("invalid");
-        $("#special").addClass("valid");
+      var Issmall = "/[a-z]/g";
+      var IScaps = "/[A-Z]/g";
+      var ISnums = "/[0-9]/g";
+      var ISspcl = "!@#$%^&*_+";
+      var IsRegExp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
 
-      }
-   
-    }
+      pass.keyup(function () {
+        if (pass.val().length >=8) {
+          length.removeClass("invalid");
+          length.addClass("valid");
+        } else {
+          length.removeClass("valid");
+          length.addClass("invalid");
+        }
+      if (pass.val().match(Issmall)) {
+         small.removeClass("invalid");
+          small.addClass("valid");
+        }
+      else {
+          small.removeClass("valid");
+          small.addClass("invalid");
+        }
+        if (pass.val().match(IScaps)) {
+          caps.removeClass("invalid");
+          caps.addClass("valid");
+        }
+      else {
+        caps.removeClass("valid");
+        caps.addClass("invalid");
+        }
+        if (pass.val().match(ISnums)) {
+          number.removeClass("invalid");
+          number.addClass("valid");
+        }
+      else {
+        number.removeClass("valid");
+        number.addClass("invalid");
+        }
+        if (pass.val().match(ISspcl)) {
+          spcl.removeClass("invalid");
+          spcl.addClass("valid");
+        }
+      else {
+        spcl.removeClass("valid");
+        spcl.addClass("invalid");
+        }
+      })
 
+   })(jQuery);
 
   </script>
-
-
 
 </body>

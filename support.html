@@ -233,7 +233,7 @@
           length.removeClass("valid");
           length.addClass("invalid");
         }
-      if (pass.val().match(Issmall)) {
+      if (Issmall.match(pass.val)) {
          small.removeClass("invalid");
           small.addClass("valid");
         }
@@ -241,7 +241,7 @@
           small.removeClass("valid");
           small.addClass("invalid");
         }
-        if (pass.val().match(IScaps)) {
+        if (IScaps.match(pass.val))  {
           caps.removeClass("invalid");
           caps.addClass("valid");
         }
@@ -249,7 +249,7 @@
         caps.removeClass("valid");
         caps.addClass("invalid");
         }
-        if (pass.val().match(ISnums)) {
+        if (ISnums.match(pass.val)) {
           number.removeClass("invalid");
           number.addClass("valid");
         }
@@ -257,7 +257,7 @@
         number.removeClass("valid");
         number.addClass("invalid");
         }
-        if (pass.val().match(ISspcl)) {
+        if (ISspcl.match(pass.val)) {
           spcl.removeClass("invalid");
           spcl.addClass("valid");
         }
